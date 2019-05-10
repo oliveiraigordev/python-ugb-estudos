@@ -15,7 +15,7 @@
 		Image:
 			source: 'kivy.png'
 			size_hint_y: None
-			height: 200
+			height: 128
 			allow_stretch: True
 		Button:
 			text: 'Cadastro de Clientes'
@@ -143,7 +143,6 @@
 					on_release: app.root.current = 'g_menu'
 				ActionButton:
 					text: 'Sair'
-
 					on_release: app.root.get_screen('g_menu').fecharBanco()
 		
 		# início do formulário
@@ -263,10 +262,16 @@
 		
 		# botao para incluir
 		BoxLayout:
-			orientation: 'vertical'
+			orientation: 'horizontal'
 			size_hint_y: None
 			height: 60
 			Button:
-				text: 'incluir'
+				text: 'Salvar +'
 				on_release:root.addCliente()
+			Button:
+				text: 'Salvar e Sair'
+				on_release:
+					root.addCliente()
+					app.root.current = 'g_menu'
+			
 
