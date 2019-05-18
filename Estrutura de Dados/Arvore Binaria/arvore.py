@@ -18,11 +18,20 @@ a.insereNo(11)
 a.insereNo(13)
 a.insereNo(15)
 a.insereNo(1)
-'''
+
+
 a.preOrdem(a.getRaiz())
+
 print('-'*20)
-a.emOrdem(a.getRaiz())'''
+
+a.emOrdem(a.getRaiz())
+'''
 print(a.contaElementos(a.getRaiz()))
-if a.procuraElemento(a.getRaiz(),a.getRaiz(),8):
+if a.procuraElemento(a.getRaiz(),2):
 	print('Elemento está na árvore')
-	
+print(a.alturaNo(a.getRaiz(),1))
+print(a.nivelNo(a.getRaiz(),1))
+a.inverteTodos(a.getRaiz())
+a.preOrdem(a.getRaiz())
+a.nivelaNivel(a.getRaiz())
+'''

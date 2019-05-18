@@ -14,20 +14,24 @@
 <Login>
 	BoxLayout:
 		orientation: 'vertical'
-		padding: 200
+		padding: 150
 		spacing: 20
 		Label:
-			size_hint_x: None
-			width: 100
+			size_hint_x: .3
+			text_size: self.size
+			halign: 'left'
+			valign: 'middle'
 			text: 'Usuário:'
 		TextInput:
 			id: iptUser
-			font_size: 15
+			font_size: 150
 			write_tab: False
 			multiline: False
 		Label:
-			size_hint_x: None
-			width: 100
+			size_hint_x: .3
+			halign: 'left'
+			valign: 'middle'
+			text_size: self.size
 			text: 'Senha:'
 		TextInput:
 			id: iptPass
@@ -40,7 +44,8 @@
 				id:btnLogin
 				text: 'Login'
 				on_release:
-					app.root.current = 'g_menu'
+					root.login()
+					#app.root.current = 'g_menu'
 			Button:
 				id:btnCadastro
 				text: 'Cadastro'

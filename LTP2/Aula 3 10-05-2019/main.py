@@ -17,7 +17,11 @@ class Gerenciador(ScreenManager):
 	pass
 
 class Login(Screen):
-	pass
+	def login(self):
+		usuario = self.root.ids.iptUser.text
+		senha = self.root.ids.iptPass.text
+		if usuario == 'admin' and senha == 'admin':
+			pass
 
 class Menu(Screen):
 	def fecharBanco(self):

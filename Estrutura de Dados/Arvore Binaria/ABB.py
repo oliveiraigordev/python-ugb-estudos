@@ -54,12 +54,12 @@ class ABB:
 					x.setFd(None)
 				else: #2 filhos
 					self.removeNT(x,x,getFe())
-	def procuraElemento(self,pai,atual,n):
+	def procuraElemento(self,atual,n):
 		if atual != None:
 			if n < atual.getElemento().getChave():
-				self.procuraElemento(atual,atual.getFe(),n)
+				return self.procuraElemento(atual.getFe(),n)
 			elif n > atual.getElemento().getChave():
-				self.procuraElemento(atual,atual.getFd(),n)
+				return self.procuraElemento(atual.getFd(),n)
 			elif n == atual.getElemento().getChave():
 				return True
 		else:
@@ -79,4 +79,54 @@ class ABB:
 			y = contaElementos2(n.getFd())
 			return x + y + 1
 		return 0
+	
+		
+	def alturaNo(self,atual,n):
+		if self.procuraElemento(atual,n):
+			return self.achaElemento(atual,n,0)
+		else:
+			return -1
+	def achaElemento(self,atual,n,estado):
+		if atual != None:
+			if estado == 0 and n == atual.getElemento().getChave():
+				estado = 1
+			x = self.achaElemento(atual.getFe(),n,estado)
+			y = self.achaElemento(atual.getFd(),n,estado)
+			return (x if x > y else y) + estado
+		return 0
 
+	def nivelNo(self,atual,n):
+		if atual != None:
+			if n == atual.getElemento().getChave():
+				return 0
+			elif atual.getElemento().getChave() > n:
+				return self.nivelNo(atual.getFe(),n) + 1
+			else:
+				return self.nivelNo(atual.getFd(),n) + 1
+					
+	def removeTodos(self,atual):
+		if atual != None:
+			self.removeTodos(atual.getFe())
+			self.removeTodos(atual.getFd())
+			atual.setFe(None)
+			atual.setFd(None)
+	
+	def inverteTodos(self,atual):
+		if atual != None:
+			self.inverteTodos(atual.getFe())
+			self.inverteTodos(atual.getFd())
+			x = atual.getFe()
+			y = atual.getFd()
+			atual.setFe(y)
+			atual.setFd(x)
+	
+	def nivelaNivel(self,atual):
+		f=[]
+		f.append(atual)
+		while len(f) > 0:
+			atual = f.pop(0)
+			print(atual.getElemento().getChave())
+			if atual.getFe() != None:
+				f.append(atual.getFe())
+			if atual.getFd() != None:
+				f.append(atual.getFd())
