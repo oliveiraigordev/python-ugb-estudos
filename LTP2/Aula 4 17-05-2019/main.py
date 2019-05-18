@@ -1,15 +1,13 @@
-import pyrebase
+from dbconn import DBFirebase
 
-config = {
-  "apiKey": "AIzaSyBqLBA8kfIKCjcv-h6lRHIMylQxBsStNBE",
-  "authDomain": "clientes-28e4a.firebaseapp.com",
-  "databaseURL": "https://clientes-28e4a.firebaseio.com/",
-  "storageBucket": "clientes-28e4a.appspot.com"
-}
 
-firebase = pyrebase.initialize_app(config)
-auth = firebase.auth()
+'''
+opcoes='\n1 - Insere Registro\n2 - Ler Registro\n3 - Alterar Registro\n4 - Apagar Registro\n5 - Fechar Banco de Dados'
+print(opcoes)
+while True:
+'''
 
-user = auth.sign_in_with_email_and_password('alulo@aluno.com','aluno123')
+conn = DBFirebase()
+conn.loginFirebase()
 
-db = firebase.database()
+#conn.criarTabela()
