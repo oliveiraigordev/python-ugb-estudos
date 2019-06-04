@@ -8,20 +8,12 @@ from crud import MyCrud
 
 criar = MyCrud()
 criar.criarBD()
-criar.criarLogin()
 
 with open('test.kv', encoding='utf8') as f: 
     Builder.load_string(f.read())
 
 class Gerenciador(ScreenManager):
 	pass
-
-class Login(Screen):
-	def login(self):
-		usuario = self.root.ids.iptUser.text
-		senha = self.root.ids.iptPass.text
-		if usuario == 'admin' and senha == 'admin':
-			pass
 
 class Menu(Screen):
 	def fecharBanco(self):

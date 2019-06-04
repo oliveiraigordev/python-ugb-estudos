@@ -7,16 +7,6 @@ class MyCrud(object):
     def fecharBD(self):
         self.conexao.close()
 
-    def criarLogin(self):
-        sql = """
-            CREATE TABLE IF NOT EXISTS usuarios (
-                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-                usuario VARCHAR(20),
-                senha VARCHAR(20)
-            );
-        """
-        self.cursor.execute(sql)
-
     def criarBD(self):
         sql = """
             CREATE TABLE IF NOT EXISTS clientes (
